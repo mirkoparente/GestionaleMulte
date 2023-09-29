@@ -8,9 +8,9 @@ using System.Web.Mvc.Html;
 
 namespace GestionaleMulte.Controllers
 {
+        [Authorize(Users = "admin")]
     public class VerbaliController : Controller
     {
-        [Authorize(Users = "admin")]
 
         // GET: Verbali
         public ActionResult Create()
