@@ -1,0 +1,43 @@
+﻿@model List<GestionaleMulte.Models.Verbali>
+
+@{
+    ViewBag.Title = "ListaVerbali";
+}
+
+<h2 class="text-center my-3">Lista Verbali</h2>
+
+
+<p>
+    @Html.ActionLink("Aggiungi Verbale", "Create","Verbali", new {@class="btn btn-outline-danger my-3"})
+</p>
+<div class="d-flex justify-content-between w-100 align-items-center">
+    @Html.ActionLink("Vedi Totale Verbali per trasgressore", "GetPartial","Verbali", new {@class="btn btn-outline-danger my-3"})
+    @Html.ActionLink("Vedi Totale Punti Decurtati per trasgressore", "GetPartial1","Verbali", new {@class="btn btn-outline-danger my-3"})
+</div>
+<table class="table table-active table-striped align-middle">
+    <thead>
+        <tr>
+            <th scope="col">Data Violazione</th>
+            <th scope="col">Indirizzo Violazione</th>
+            <th scope="col">Agente</th>
+            <th scope="col">Data Trascrizione</th>
+            <th scope="col">Importo</th>
+            <th scope="col">Punti Decurtati</th>
+        </tr>
+    </thead>
+    @foreach (GestionaleMulte.Models.Verbali t in Model)
+    {
+
+        <tbody>
+            <tr>
+                <td>@t.DataViolazione.ToShortDateString()</td>
+                <td>@t.IndirizzoViolazione</td>
+                <td>@t.NominativoAgente</td>
+                <td>@t.DataTrascrizione.ToShortDateString()</td>
+                <td>@t.Importo.ToString("C2")</td>
+                <td>@t.DecurtamentoPunti</td>
+            </tr>
+        </tbody>
+    }
+
+</table>

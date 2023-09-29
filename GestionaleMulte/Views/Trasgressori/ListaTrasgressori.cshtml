@@ -1,0 +1,48 @@
+﻿@model List<GestionaleMulte.Models.Trasgressori>
+
+@{
+    ViewBag.Title = "ListaTrasgressori";
+}
+
+<h2 class="text-center my-3">ListaTrasgressori</h2>
+
+
+<table class="table table-active table-striped align-middle">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Cognome</th>
+            <th scope="col">Indirizzo</th>
+            <th scope="col">Città</th>
+            <th scope="col">CAP</th>
+            <th scope="col">Codice Fiscale</th>
+            <th scope="col">Azioni</th>
+        </tr>
+    </thead>
+    @foreach (GestionaleMulte.Models.Trasgressori t in Model)
+    {
+
+        <tbody>
+            <tr>
+
+                <td>@t.Nome</td>
+                <td>@t.Cognome</td>
+                <td>@t.Indirizzo</td>
+                <td>@t.Citta</td>
+                <td>@t.CAP</td>
+                <td>@t.CodFisc</td>
+
+                <td>
+                    @Html.ActionLink("Modifica", "Edit", "Trasgressori", new { id = t.IdTrasgressori }, new { @class = "btn btn-outline-info" })
+
+                    @Html.ActionLink("Elimina", "Delete", "Trasgressori", new { id = t.IdTrasgressori }, new { @class = "btn btn-outline-danger" })
+                </td>
+            </tr>
+
+        </tbody>
+    }
+
+</table>
+
+@Html.ActionLink("Aggiungi Trasgressore", "Create", "Trasgressori", new { @class = "btn btn-outline-dark" })
+

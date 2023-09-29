@@ -1,0 +1,34 @@
+﻿@model IEnumerable<GestionaleMulte.Models.Violazioni>
+
+@{
+    ViewBag.Title = "ListaViolazioni";
+}
+
+<h2>ListaViolazioni</h2>
+
+<p>
+    @Html.ActionLink("Aggiungi Violazione", "Create","Violazione", new {@class="btn btn-outline-danger my-3"})
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (GestionaleMulte.Models.Violazioni v in Model) {
+    <tr>
+       
+        <td>
+            @v.Descrizione
+        </td>
+        <td>
+            @Html.ActionLink("Modifica", "Edit", "Violazioni", new { id=v.IdViolazioni },new { @class = "btn btn-outline-info my-3" }) 
+            @Html.ActionLink("Elimina", "Delete", "Violazioni", new { id = v.IdViolazioni }, new { @class = "btn btn-outline-danger my-3" })
+        </td>
+    </tr>
+}
+
+</table>

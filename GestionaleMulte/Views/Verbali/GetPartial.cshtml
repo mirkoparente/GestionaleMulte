@@ -1,0 +1,30 @@
+﻿@model IEnumerable<GestionaleMulte.Models.Partial>
+
+
+<table class="table table-active table-striped align-middle">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Cognome</th>
+            <th scope="col">Tot Verbali</th>
+            
+        </tr>
+    </thead>
+    @foreach (GestionaleMulte.Models.Partial t in Model)
+    {
+
+        <tbody>
+            <tr>
+
+                <td>@t.Nome</td>
+                <td>@t.Cognome</td>
+                <td>@t.IdVerbali</td>
+                
+
+            
+            </tr>
+
+        </tbody>
+    }
+
+</table>
